@@ -27,7 +27,6 @@
 	UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:image];
 	[contentView addSubview:backgroundImageView];
 	[contentView sendSubviewToBack:backgroundImageView];
-	[backgroundImageView release];
 }
 
 - (void) styleNavigationBar:(UINavigationBar *)bar

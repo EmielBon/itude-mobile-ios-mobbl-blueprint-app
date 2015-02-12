@@ -30,7 +30,7 @@
 - (id<MBAction>) createAction:(NSString *)actionClassName
 {
 	if ([actionClassName isEqualToString:@"FireInitialOutcomes"]) {
-		return [[FireInitialOutcomes new] autorelease];
+		return [FireInitialOutcomes new];
 	}
     /*
     else if ([actionClassName isEqualToString:@"MyCustomAction"]) {
@@ -40,16 +40,13 @@
 	return nil;
 }
 
-- (MBPage *) createPage:(MBPageDefinition *)definition document:(MBDocument*)document rootPath:(NSString*)rootPath viewState:(MBViewState)viewState withMaxBounds:(CGRect)bounds
+- (UIViewController<MBViewControllerProtocol> *) viewControllerForPageWithName:(NSString *)pageName
 {
     // Home page (example)
-    if ([@"PAGE-home" isEqualToString:definition.name]) {
-        CustomViewController *myViewController = [[[CustomViewController alloc] init] autorelease];
-        MBPage *page = [[[MBPage alloc] initWithDefinition:definition withViewController:myViewController document:document rootPath:rootPath viewState: viewState] autorelease];
-		return page;
- 	}
-    
-    return [super createPage:definition document:document rootPath:rootPath viewState:viewState withMaxBounds:bounds];
+    if ([@"PAGE-home" isEqualToString:pageName]) {
+        return [[CustomViewController alloc] init];
+    }
+    return nil;
 }
 
 @end

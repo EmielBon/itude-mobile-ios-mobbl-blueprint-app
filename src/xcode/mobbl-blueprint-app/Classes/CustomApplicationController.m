@@ -17,44 +17,34 @@
 #import "CustomApplicationController.h"
 #import "CustomApplicationFactory.h"
 #import "CustomStyleHandler.h"
-// #import "CustomDataHandler.h"
+#import "CustomDataHandler.h"
 
 @implementation CustomApplicationController
 
-- (CustomSplashScreen *)splashScreen
-{
-    if (!_splashScreen)
-        _splashScreen = [[CustomSplashScreen alloc] initWithImage:[UIImage imageNamed:@"LaunchImage.png"]];
-    return _splashScreen;
-}
-
--(void) startController
+- (void) startController
 {
 	// Uncomment this in development/test mode to get the stacktrace on-screen
 	//InstallUncaughtExceptionHandler();
 
-    [[MBViewBuilderFactory sharedInstance] setStyleHandler:[[CustomStyleHandler new] autorelease]];
+    [MBViewBuilderFactory sharedInstance].styleHandler = [CustomStyleHandler new];
     
     // Uncomment to register a custom datahandler
     // [[MBDataManagerService sharedInstance] registerDataHandler:[[CustomDataHandler new] autorelease] withName:@"CustomDataHandler"];
     
     // registers a factory that creates custom ViewControllers and Custom Actions
-    [MBApplicationFactory setSharedInstance:[[CustomApplicationFactory new] autorelease]];
+    [MBApplicationFactory setSharedInstance:[CustomApplicationFactory new]];
     
     [self performSelectorOnMainThread:@selector(startApplication:) withObject:[MBApplicationFactory sharedInstance] waitUntilDone:YES];
 }
 
-- (void)startApplication:(MBApplicationFactory *)_applicationFactory
+- (void) startApplication:(MBApplicationFactory *)_applicationFactory
 {
     // Start the application
     [super startApplication:_applicationFactory];
-    // We want to remove the splash-screen image, because it takes up memory and we don't need it anymore
-	[self.splashScreen removeFromSuperview];
-    self.splashScreen = nil;
 }
 
 // support 3.x
--(void) applicationDidFinishLaunching:(UIApplication *)application
+- (void) applicationDidFinishLaunching:(UIApplication *)application
 {
 	[self application:application didFinishLaunchingWithOptions:nil];
 }
@@ -66,18 +56,10 @@
     // todo: waarom is dit nodig?
     [self performSelectorInBackground:@selector(startController) withObject:nil];
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    // Show something on screen so user doesnt think the app is dead if the network takes a long time.
-	[self.window addSubview:self.splashScreen];
     [self.window makeKeyAndVisible];
 	
     return YES;
 }
 
-- (void)dealloc
-{
-    self.window = nil;
-    self.splashScreen = nil;
-    [super dealloc];
-}
 
 @end

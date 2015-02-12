@@ -23,7 +23,6 @@
 		C74DAAA8183269D400580179 /* CustomApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74DAA56183269D300580179 /* CustomApplicationController.m */; };
 		C74DAAA9183269D400580179 /* CustomApplicationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C74DAA58183269D300580179 /* CustomApplicationFactory.m */; };
 		C74DAAAE183269D400580179 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C74DAA69183269D300580179 /* CustomViewController.m */; };
-		C74DAAAF183269D400580179 /* CustomSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C74DAA6C183269D300580179 /* CustomSplashScreen.m */; };
 		C74DAAB2183269D400580179 /* CustomStyleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C74DAA73183269D300580179 /* CustomStyleHandler.m */; };
 		C74DAAB3183269D400580179 /* actions.xml in Resources */ = {isa = PBXBuildFile; fileRef = C74DAA76183269D300580179 /* actions.xml */; };
 		C74DAAB4183269D400580179 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = C74DAA77183269D300580179 /* config.xml */; };
@@ -106,8 +105,6 @@
 		C74DAA58183269D300580179 /* CustomApplicationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomApplicationFactory.m; sourceTree = "<group>"; };
 		C74DAA68183269D300580179 /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
 		C74DAA69183269D300580179 /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
-		C74DAA6B183269D300580179 /* CustomSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSplashScreen.h; sourceTree = "<group>"; };
-		C74DAA6C183269D300580179 /* CustomSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSplashScreen.m; sourceTree = "<group>"; };
 		C74DAA72183269D300580179 /* CustomStyleHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleHandler.h; sourceTree = "<group>"; };
 		C74DAA73183269D300580179 /* CustomStyleHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStyleHandler.m; sourceTree = "<group>"; };
 		C74DAA76183269D300580179 /* actions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = actions.xml; sourceTree = "<group>"; };
@@ -269,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				C74DAA67183269D300580179 /* Controllers */,
-				C74DAA6A183269D300580179 /* Helpers */,
 				C74DAA6D183269D300580179 /* StyleHandling */,
 			);
 			path = View;
@@ -282,15 +278,6 @@
 				C74DAA69183269D300580179 /* CustomViewController.m */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		C74DAA6A183269D300580179 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C74DAA6B183269D300580179 /* CustomSplashScreen.h */,
-				C74DAA6C183269D300580179 /* CustomSplashScreen.m */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C74DAA6D183269D300580179 /* StyleHandling */ = {
@@ -602,7 +589,6 @@
 				C74DAAB2183269D400580179 /* CustomStyleHandler.m in Sources */,
 				C74DAAA8183269D400580179 /* CustomApplicationController.m in Sources */,
 				C74DAAA5183269D400580179 /* FireInitialOutcomes.m in Sources */,
-				C74DAAAF183269D400580179 /* CustomSplashScreen.m in Sources */,
 				C74DAAAE183269D400580179 /* CustomViewController.m in Sources */,
 				C74DAAD6183269D400580179 /* main.m in Sources */,
 				C75A44EA18729D580014F708 /* CustomDataHandler.m in Sources */,
@@ -629,6 +615,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
@@ -665,6 +652,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
@@ -789,6 +777,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
